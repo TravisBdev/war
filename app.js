@@ -21,5 +21,5 @@ function drawCards() {
     });
 }
 
-document.querySelector(".draw-cards").addEventListener("click", drawCards);
-document.querySelector(".new-deck").addEventListener("click", handleClick);
+document.querySelector(".drawBtn").addEventListener("click", drawCards);
+document.querySelector(".newDeckBtn").addEventListener("click", handleClick);
