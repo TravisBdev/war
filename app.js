@@ -13,11 +13,12 @@ function drawCards() {
     .then((res) => res.json())
     .then((data) => {
       console.log(data.cards);
-      data.cards.forEach((card) => {
-        document.querySelector(".card-container").innerHTML += `
-          <img src="${card.image}" alt="playing card" class='card' />
-        `;
-      });
+      document.querySelector(".card-container").children[0].innerHTML = `
+        <img src="${data.cards[0].image}" class='card' />
+      `;
+      document.querySelector(".card-container").children[1].innerHTML = `
+        <img src="${data.cards[1].image}" class='card' />
+      `;
     });
 }
 
