@@ -9,6 +9,7 @@ body {
 
 .page-container {
   height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,7 +20,7 @@ body {
   width: 50%;
   height: 50%;
   max-width: 680px;
-  border: 1px solid #212529;
+  border: 2px solid #212529;
   background-color: #0a6c03;
   border-radius: 30%;
   display: flex;
@@ -29,7 +30,7 @@ body {
 }
 
 .card-holder {
-  border: 1px solid black;
+  border: 1px solid #fff;
   margin: 2rem;
   border-radius: 5px;
   height: 120px;
@@ -55,7 +56,15 @@ button {
   cursor: pointer;
 }
 
+button:active {
+  box-shadow: 0 2px #0B090A;
+  transform: translateY(3px)
+}
+
 .winner-text {
+  position: absolute;
+  top: 0;
   font-size: 3rem;
   color: #fff;
+  padding: 0;
 }
