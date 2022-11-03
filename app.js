@@ -17,17 +17,23 @@ function drawCards() {
     .then((res) => res.json())
     .then((data) => {
       console.log(data.cards);
-      cardContainer.children[0].innerHTML = `
+
+      setTimeout(() => {
+        cardContainer.children[0].innerHTML = `
         <img src="${data.cards[0].image}" class='card' />
       `;
-      cardContainer.children[1].innerHTML = `
+      }, 400);
+      setTimeout(() => {
+        cardContainer.children[1].innerHTML = `
         <img src="${data.cards[1].image}" class='card' />
       `;
+      }, 800);
 
       const winner = whoWon(data.cards[0], data.cards[1]);
       setTimeout(() => {
         winnerText.textContent = winner;
-      }, 300);
+      }, 1200);
+      winnerText.textContent = "";
     });
 }
 
