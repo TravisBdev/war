@@ -1,3 +1,6 @@
+const cardContainer = document.querySelector(".card-container");
+const drawBtn = document.querySelector(".drawBtn");
+const newDeckBtn = document.querySelector(".newDeckBtn");
 let deckId = "";
 
 function handleClick() {
@@ -13,14 +16,14 @@ function drawCards() {
     .then((res) => res.json())
     .then((data) => {
       console.log(data.cards);
-      document.querySelector(".card-container").children[0].innerHTML = `
+      cardContainer.children[0].innerHTML = `
         <img src="${data.cards[0].image}" class='card' />
       `;
-      document.querySelector(".card-container").children[1].innerHTML = `
+      cardContainer.children[1].innerHTML = `
         <img src="${data.cards[1].image}" class='card' />
       `;
     });
 }
 
-document.querySelector(".drawBtn").addEventListener("click", drawCards);
-document.querySelector(".newDeckBtn").addEventListener("click", handleClick);
+drawBtn.addEventListener("click", drawCards);
+newDeckBtn.addEventListener("click", handleClick);
