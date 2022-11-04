@@ -9,7 +9,7 @@ body {
 
 .page-container {
   height: 100vh;
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,10 +61,22 @@ button:active {
   transform: translateY(3px)
 }
 
+.newDeck-Btn {
+  margin-top: 0;
+  padding: 0;
+}
+
 .winner-text {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   font-size: 3rem;
   color: #fff;
   padding: 0;
+}
+
+.cards-remaining {
+  align-self: center;
+  color: #fff;
+  padding: 0;
+  margin-bottom: 1rem;
 }
