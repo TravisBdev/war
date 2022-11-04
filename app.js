@@ -2,6 +2,7 @@ const cardContainer = document.querySelector(".card-container");
 const drawBtn = document.querySelector(".draw-Btn");
 const newDeckBtn = document.querySelector(".newDeck-Btn");
 const winnerText = document.querySelector(".winner-text");
+const cardsRemaining = document.querySelector(".cards-remaining");
 let deckId = "";
 
 function handleClick() {
@@ -16,7 +17,7 @@ function drawCards() {
   fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.cards);
+      console.log(data);
 
       setTimeout(() => {
         cardContainer.children[0].innerHTML = `
@@ -33,7 +34,10 @@ function drawCards() {
       setTimeout(() => {
         winnerText.textContent = winner;
       }, 1200);
-      winnerText.textContent = "";
+
+      // winnerText.textContent = "";
+
+      cardsRemaining.textContent = `Cards Remaining: ${data.remaining}`;
     });
 }
 
