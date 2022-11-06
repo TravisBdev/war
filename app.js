@@ -3,13 +3,19 @@ const drawBtn = document.querySelector(".draw-Btn");
 const newDeckBtn = document.querySelector(".newDeck-Btn");
 const winnerText = document.querySelector(".winner-text");
 const cardsRemaining = document.querySelector(".cards-remaining");
+let scores = {
+  computer: 0,
+  you: 0,
+};
 let deckId = "";
 
 function handleClick() {
+  drawBtn.disabled = false;
   fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
     .then((res) => res.json())
     .then((data) => {
       deckId = data.deck_id;
+      cardsRemaining.textContent = `Cards Remaining: ${data.remaining}`;
     });
 }
 
@@ -35,7 +41,9 @@ function drawCards() {
         winnerText.textContent = winner;
       }, 1200);
 
-      // winnerText.textContent = "";
+      if (data.remaining === 0) {
+        drawBtn.disabled = true;
+      }
 
       cardsRemaining.textContent = `Cards Remaining: ${data.remaining}`;
     });
@@ -61,8 +69,10 @@ function whoWon(card1, card2) {
   const card2Index = values.indexOf(card2.value);
 
   if (card1Index > card2Index) {
+    scores.computer++;
     return "Computer Wins!";
   } else if (card1Index < card2Index) {
+    scores.you++;
     return "You Win!";
   } else {
     return "War!";
