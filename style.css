@@ -43,21 +43,30 @@ body {
   height: 100%;
 }
 
-.computer-score {
-  align-self: flex-start;
-  margin-left: 20%;
+.scores {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+
+.computer-score,
+ .your-score {
   font-size: 2em;
   color: #fff;
-  width: 50%;
+}
+
+.computer-score {
+  margin-left: 5rem;
 }
 
 .your-score {
-  align-self: flex-end;
-  margin-right: 20%;
-  font-size: 2em;
-  color:#fff;
-  width: 50%;
+  margin-right: 5rem;
 }
+
+
+
 
 
 button {
@@ -92,8 +101,11 @@ button:disabled {
 }
 
 .winner-text {
+  height: 3rem;
   /* position: absolute; */
-  top: 0;
+  /* top: 0; */
+  margin-top: 0;
+  padding: 0;
   font-size: 3rem;
   color: #fff;
   padding: 0;
