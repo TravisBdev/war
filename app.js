@@ -40,13 +40,8 @@ function drawCards() {
 
       if (data.remaining === 0) {
         drawBtn.disabled = true;
-        if (computerScore > yourScore) {
-          winnerText.textContent = "Computer wins the war";
-        } else if (yourScore > computerScore) {
-          winnerText.textContent = "You win the war";
-        } else {
-          winnerText.textContent = "It's a Draw";
-        }
+        const gameWin = checkForWinner(scores.computer, scores.you);
+        winnerText.textContent = gameWin;
       }
 
       cardsRemaining.textContent = `Cards Remaining: ${data.remaining}`;
@@ -85,15 +80,15 @@ function whoWon(card1, card2) {
   }
 }
 
-// function checkForWinner(score1, score2) {
-//   if (score1 > score2) {
-//     return "Computer Wins the War!";
-//   } else if (score1 < score2) {
-//     return "You Win the War!";
-//   } else {
-//     return "It's a tie";
-//   }
-// }
+function checkForWinner(score1, score2) {
+  if (score1 > score2) {
+    return "Computer Wins the War!";
+  } else if (score1 < score2) {
+    return "You Win the War!";
+  } else {
+    return "It's a tie";
+  }
+}
 
 drawBtn.addEventListener("click", drawCards);
 newDeckBtn.addEventListener("click", handleClick);
